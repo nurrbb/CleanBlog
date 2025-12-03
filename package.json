@@ -1,0 +1,28 @@
+{
+  "name": "cleanblog",
+  "version": "1.0.0",
+  "description": "clean blog ",
+  "homepage": "https://github.com/nurrbb/CleanBlog#readme",
+  "bugs": {
+    "url": "https://github.com/nurrbb/CleanBlog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nurrbb/CleanBlog.git"
+  },
+  "license": "ISC",
+  "author": "Nur Bulbul",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11",
+    "prettier": "3.7.4"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
