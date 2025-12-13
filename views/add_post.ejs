@@ -6,67 +6,67 @@
     <%- include('partials/_navigation') %>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('/img/contact-bg.jpg')">
+    <header class="masthead" style="background-image: url('/img/post-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="page-heading">
-              <h1>Add New Post</h1>
+            <div class="post-heading">
+              <h1><%= post.title %></h1>
+              <span class="meta">
+                Posted on
+                <%= post.dateCreated.toLocaleDateString('tr-TR') %>
+              </span>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Main Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <form novalidate>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Post Title</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Post Title"
-                  id="title"
-                  required
-                  data-validation-required-message="Please enter a post title.">
-                <p class="help-block text-danger"></p>
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+
+          <!-- LEFT: CONTENT -->
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <p><%= post.detail %></p>
+
+            <a href="#">
+              <img class="img-fluid" src="/img/post-sample-image.jpg" alt="">
+            </a>
+            <span class="caption text-muted">
+              To go places and do things that have never been done before – that’s what living is all about.
+            </span>
+          </div>
+
+          <!-- RIGHT: ACTIONS (Update / Delete) -->
+          <div class="col-lg-4 col-md-10 mx-auto mt-4 mt-lg-0">
+            <div class="card">
+              <div class="card-body text-center">
+
+                <a href="/posts/edit/<%= post._id %>" class="btn btn-warning btn-block mb-3">
+                  Update Post
+                </a>
+
+                <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                  <button type="submit"
+                          class="btn btn-danger btn-block"
+                          onclick="return confirm('ARE YOU SURE?')">
+                    Delete Post
+                  </button>
+                </form>
+
               </div>
             </div>
-            <div class="control-group">
-              <div class="form-group floating-label-form-group controls">
-                <label>Post Detail</label>
-                <textarea
-                  rows="5"
-                  class="form-control"
-                  placeholder="Post content"
-                  id="content"
-                  required
-                  data-validation-required-message="Please enter a post content."></textarea>
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-            <br>
-            <div id="success"></div>
-            <button type="submit" class="btn btn-primary" id="sendMessageButton">
-              Send
-            </button>
-          </form>
+          </div>
+
         </div>
       </div>
-    </div>
+    </article>
 
     <hr>
 
     <%- include('partials/_footer') %>
-
-    <!-- Contact / form validation scripts (opsiyonel, dosyalar varsa) -->
-    <script src="/js/jqBootstrapValidation.js"></script>
-    <script src="/js/contact_me.js"></script>
-
   </body>
 </html>
